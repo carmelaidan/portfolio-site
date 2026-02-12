@@ -218,50 +218,58 @@ img {
     color: var(--accent);
 }
 
+.about-content em {
+    font-style: italic;
+    color: var(--text-primary);
+}
+
 /* ===== Skills Section ===== */
-.skill-highlight {
-    margin-bottom: 1.5rem;
-}
-
-.skill-card-highlighted {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    border-color: var(--accent);
-    background: var(--accent-muted);
-}
-
-.skill-card-highlighted .skill-label {
-    font-weight: 600;
-    color: var(--accent);
-}
-
-.skill-card-highlighted .skill-desc {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--text-secondary);
-}
-
-.skills-grid {
+.skills-grouped {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
 }
 
-.skill-card {
+.skill-group {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.25rem;
-    text-align: center;
-    font-weight: 500;
+    border-radius: 12px;
+    padding: 1.5rem;
     transition: all var(--transition);
 }
 
-.skill-card:hover {
+.skill-group:hover {
     border-color: var(--accent);
     background: var(--accent-muted);
+}
+
+.skill-group-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.skill-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
 }
 
 /* ===== Certifications Section ===== */
@@ -295,6 +303,9 @@ img {
     font-size: 0.95rem;
     font-weight: 500;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
 .cert-card figcaption a {
@@ -305,6 +316,19 @@ img {
 
 .cert-card figcaption a:hover {
     color: var(--accent);
+}
+
+.cert-provider {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.cert-focus {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    display: block;
 }
 
 @media (max-width: 768px) {
@@ -346,15 +370,35 @@ img {
     margin-bottom: 0.5rem;
 }
 
+.project-tagline {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
 .project-tag {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--accent);
     background: var(--accent-muted);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
     margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 .project-card p {
@@ -416,9 +460,22 @@ img {
     color: var(--accent);
 }
 
+.project-features .feature-highlight {
+    color: var(--text-primary);
+    border-left: 3px solid var(--accent);
+    padding-left: 0.75rem;
+    margin-left: -0.5rem;
+}
+
+.project-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
 .project-card-flagship .btn-download {
     display: inline-block;
-    margin-top: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     background: var(--accent);
@@ -429,6 +486,17 @@ img {
 
 .project-card-flagship .btn-download:hover {
     background: var(--accent-hover);
+}
+
+.project-card-flagship .btn-download-gh {
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+}
+
+.project-card-flagship .btn-download-gh:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 /* ===== Contact Section ===== */
@@ -508,8 +576,8 @@ img {
         padding: 3rem 1.25rem;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .skills-grouped {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -522,9 +590,6 @@ img {
         width: 100%;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
 
     .contact-links {
         flex-direction: column;
